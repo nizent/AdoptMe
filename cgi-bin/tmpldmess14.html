@@ -1,0 +1,39 @@
+<body bgcolor="#f0f0f8">
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#6622aa">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>IndexError</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial">Python 3.8.5: C:\Users\nicol\AppData\Local\Programs\Python\Python38-32\python.exe<br>Thu Nov 26 23:13:23 2020</font></td></tr></table>
+    
+<p>A problem occurred in a Python script.  Here is the sequence of
+function calls leading up to the error, in the order they occurred.</p>
+<table width="100%" cellspacing=0 cellpadding=0 border=0>
+<tr><td bgcolor="#d8bbff"><big>&nbsp;</big><a href="file://C:\xampp2\cgi-bin\informar.py">C:\xampp2\cgi-bin\informar.py</a> in <strong>&lt;module&gt;</strong></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;126</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;region=datos['region'].value<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;127</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;region_id=c.execute("SELECT&nbsp;id&nbsp;FROM&nbsp;region&nbsp;WHERE&nbsp;nombre='"+region+"'")<br>
+</tt></font></td></tr>
+<tr><td bgcolor="#ffccee"><tt>=&gt;<small>&nbsp;&nbsp;128</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;region_id=c.fetchall()[0][0]<br>
+</tt></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;129</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;comuna=datos['comuna'].value<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;130</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id_comuna=c.execute("SELECT&nbsp;id&nbsp;FROM&nbsp;comuna&nbsp;WHERE&nbsp;region_id="+str(region_id)+"&nbsp;AND&nbsp;nombre='"+comuna+"'")<br>
+</tt></font></td></tr>
+<tr><td><small><font color="#909090"><strong>region_id</strong>&nbsp;= 0, <strong>c</strong>&nbsp;= &lt;pymysql.cursors.Cursor object&gt;, c.<strong>fetchall</strong>&nbsp;= &lt;bound method Cursor.fetchall of &lt;pymysql.cursors.Cursor object&gt;&gt;</font></small></td></tr></table><p><strong>IndexError</strong>: tuple index out of range
+<br><tt><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>&nbsp;</tt>args&nbsp;=
+('tuple index out of range',)
+<br><tt><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>&nbsp;</tt>with_traceback&nbsp;=
+&lt;built-in method with_traceback of IndexError object&gt;
+
+
+<!-- The above is a description of an error in a Python program, formatted
+     for a Web browser because the 'cgitb' module was enabled.  In case you
+     are not reading this in a Web browser, here is the original traceback:
+
+Traceback (most recent call last):
+  File "C:/xampp2/cgi-bin/informar.py", line 128, in &lt;module&gt;
+    region_id=c.fetchall()[0][0]
+IndexError: tuple index out of range
+
+-->

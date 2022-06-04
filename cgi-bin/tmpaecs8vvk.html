@@ -1,0 +1,54 @@
+<body bgcolor="#f0f0f8">
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#6622aa">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>KeyError</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial">Python 3.8.5: C:\Users\nicol\AppData\Local\Programs\Python\Python38-32\python.exe<br>Thu Nov 26 17:19:34 2020</font></td></tr></table>
+    
+<p>A problem occurred in a Python script.  Here is the sequence of
+function calls leading up to the error, in the order they occurred.</p>
+<table width="100%" cellspacing=0 cellpadding=0 border=0>
+<tr><td bgcolor="#d8bbff"><big>&nbsp;</big><a href="file://C:\xampp2\cgi-bin\informar.py">C:\xampp2\cgi-bin\informar.py</a> in <strong>&lt;module&gt;</strong></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;&nbsp;27</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mensaje+="&lt;br&gt;&nbsp;Region&nbsp;no&nbsp;debe&nbsp;estar&nbsp;vacio"<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;&nbsp;28</small>&nbsp;<br>
+</tt></font></td></tr>
+<tr><td bgcolor="#ffccee"><tt>=&gt;<small>&nbsp;&nbsp;&nbsp;29</small>&nbsp;if&nbsp;datos["comuna"].value=="":<br>
+</tt></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;&nbsp;30</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;val=False<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;&nbsp;31</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mensaje+="&lt;br&gt;&nbsp;Comuna&nbsp;no&nbsp;debe&nbsp;estar&nbsp;vacio"<br>
+</tt></font></td></tr>
+<tr><td><small><font color="#909090"><strong>datos</strong>&nbsp;= FieldStorage(None, None, [FieldStorage('region',...\xc3\xca3s\xf4\xcf\xef\xe1;\x98]M\xd3\xff\xd9')]), ].<strong>value</strong>&nbsp;= [FieldStorage('region', None, ''), FieldStorage('calle', None, 'Secte'), FieldStorage('numero', None, '12'), FieldStorage('sector', None, 'Sector'), FieldStorage('nombre', None, 'Fiel Castro'), FieldStorage('email', None, 'fi'), FieldStorage('celular', None, '+56944998325'), FieldStorage('tipo-mascota0', None, 'perro'), FieldStorage('edad-mascota0', None, '4'), FieldStorage('color-mascota0', None, 'Amarillo'), FieldStorage('raza-mascota0', None, 'chowchow'), FieldStorage('esterilizado-mascota0', None, '1'), FieldStorage('vacunas-mascota0', None, '1'), FieldStorage('foto-mascota0_0', 'wow.jpg', b'\xf...9T\xc3\xca3s\xf4\xcf\xef\xe1;\x98]M\xd3\xff\xd9')]</font></small></td></tr></table>
+<table width="100%" cellspacing=0 cellpadding=0 border=0>
+<tr><td bgcolor="#d8bbff"><big>&nbsp;</big><a href="file://C:\Program Files\Python38\Lib\cgi.py">C:\Program Files\Python38\Lib\cgi.py</a> in <strong>__getitem__</strong>(self=FieldStorage(None, None, [FieldStorage('region',...\xc3\xca3s\xf4\xcf\xef\xe1;\x98]M\xd3\xff\xd9')]), key='comuna')</td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;518</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;item.name&nbsp;==&nbsp;key:&nbsp;found.append(item)<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;519</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;not&nbsp;found:<br>
+</tt></font></td></tr>
+<tr><td bgcolor="#ffccee"><tt>=&gt;<small>&nbsp;&nbsp;520</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;raise&nbsp;KeyError(key)<br>
+</tt></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;521</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;len(found)&nbsp;==&nbsp;1:<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;522</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;found[0]<br>
+</tt></font></td></tr>
+<tr><td><small><font color="#909090"><em>builtin</em> <strong>KeyError</strong>&nbsp;= &lt;class 'KeyError'&gt;, <strong>key</strong>&nbsp;= 'comuna'</font></small></td></tr></table><p><strong>KeyError</strong>: 'comuna'
+<br><tt><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>&nbsp;</tt>args&nbsp;=
+('comuna',)
+<br><tt><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>&nbsp;</tt>with_traceback&nbsp;=
+&lt;built-in method with_traceback of KeyError object&gt;
+
+
+<!-- The above is a description of an error in a Python program, formatted
+     for a Web browser because the 'cgitb' module was enabled.  In case you
+     are not reading this in a Web browser, here is the original traceback:
+
+Traceback (most recent call last):
+  File "C:/xampp2/cgi-bin/informar.py", line 29, in &lt;module&gt;
+    if datos["comuna"].value=="":
+  File "C:\Program Files\Python38\Lib\cgi.py", line 520, in __getitem__
+    raise KeyError(key)
+KeyError: 'comuna'
+
+-->

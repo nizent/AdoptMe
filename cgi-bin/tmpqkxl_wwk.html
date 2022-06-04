@@ -1,0 +1,39 @@
+<body bgcolor="#f0f0f8">
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#6622aa">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>NameError</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial">Python 3.8.5: C:\Users\nicol\AppData\Local\Programs\Python\Python38-32\python.exe<br>Thu Nov 26 22:24:21 2020</font></td></tr></table>
+    
+<p>A problem occurred in a Python script.  Here is the sequence of
+function calls leading up to the error, in the order they occurred.</p>
+<table width="100%" cellspacing=0 cellpadding=0 border=0>
+<tr><td bgcolor="#d8bbff"><big>&nbsp;</big><a href="file://C:\xampp2\cgi-bin\read.py">C:\xampp2\cgi-bin\read.py</a> in <strong>&lt;module&gt;</strong></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;&nbsp;31</small>&nbsp;msg={}<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;&nbsp;32</small>&nbsp;for&nbsp;comuna&nbsp;in&nbsp;data:<br>
+</tt></font></td></tr>
+<tr><td bgcolor="#ffccee"><tt>=&gt;<small>&nbsp;&nbsp;&nbsp;33</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg[k]=list(i)<br>
+</tt></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;&nbsp;34</small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k+=1<br>
+</tt></font></td></tr>
+<tr><td><font color="#909090"><tt>&nbsp;&nbsp;<small>&nbsp;&nbsp;&nbsp;35</small>&nbsp;print(json.dumps(msg))<br>
+</tt></font></td></tr>
+<tr><td><small><font color="#909090"><strong>msg</strong>&nbsp;= {}, <strong>k</strong>&nbsp;= 0, <em>builtin</em> <strong>list</strong>&nbsp;= &lt;class 'list'&gt;, i <em>undefined</em></font></small></td></tr></table><p><strong>NameError</strong>: name 'i' is not defined
+<br><tt><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>&nbsp;</tt>args&nbsp;=
+("name 'i' is not defined",)
+<br><tt><small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>&nbsp;</tt>with_traceback&nbsp;=
+&lt;built-in method with_traceback of NameError object&gt;
+
+
+<!-- The above is a description of an error in a Python program, formatted
+     for a Web browser because the 'cgitb' module was enabled.  In case you
+     are not reading this in a Web browser, here is the original traceback:
+
+Traceback (most recent call last):
+  File "C:/xampp2/cgi-bin/read.py", line 33, in &lt;module&gt;
+    msg[k]=list(i)
+NameError: name 'i' is not defined
+
+-->
