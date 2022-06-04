@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adopta una mascota</title>
+    <script src="validar.js"></script>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+<body onload="completar_regiones()">
+<img class="logo2" alt="imagen" src="img/logo.png" width="120" height="120">
+<div class="master">
+    <div class="titulo2"><br>Informa mascotas!</div>
+    <div class="menu2">
+        <form id="miformulario" method="post" onsubmit="return true;" action="cgi-bin/informar.py" enctype="multipart/form-data">
+            <div id="formulario">
+                Domicilio:
+                <div class="entrada">
+                    <div class="leyenda">Región</div>
+                    <select id="region" name="region" oninput="completar_comunas()">
+                        <option label=" "></option>
+                    </select>
+                </div>
+                <div class="entrada">
+                    <div class="leyenda">Comuna</div>
+                    <select id="comuna" name="comuna">
+                        <option label=" "></option>
+                    </select>
+                </div>
+                <div class="entrada">
+                    <div class="leyenda">Nombre Calle</div>
+                    <input type="text" id="calle" name="calle" size="100" maxlength="250">
+                </div>
+                <div class="entrada">
+                    <div class="leyenda">Número</div>
+                    <input type="text" id="numero" name="numero" size="20" maxlength="20">
+                </div>
+                <div class="entrada">
+                    <div class="leyenda">Sector</div>
+                    <input type="text" id="sector" name="sector" size="100" maxlength="100">
+                </div>
+                Datos de contacto:
+                <div class="entrada">
+                    <div class="leyenda">Nombre</div>
+                    <input type="text" id="nombre" name="nombre" size="100" maxlength="200">
+                </div>
+                <div class="entrada">
+                    <div class="leyenda">Email</div>
+                    <input type="text" id="email" name="email" size="100">
+                    <span id="validated"></span>
+                </div>
+                <div class="entrada">
+                    <div class="leyenda">Número de celular</div>
+                    <input type="text" id="celular" name="celular" size="15">
+                    <span id="validatedph"></span>
+                </div>
+                <div id="informar_mascota">
+                    Información de mascota:
+                    <div class="entrada">
+                        <div class="leyenda">Tipo</div>
+                        <select id="tipo-mascota" name="tipo-mascota0" oninput="other_pet()">
+                            <option label=" "></option>
+                            <option>perro</option>
+                            <option>gato</option>
+                            <option>pez</option>
+                            <option>tortuga</option>
+                            <option>hamster</option>
+                            <option>loro</option>
+                            <option>iguana</option>
+                            <option>araña</option>
+                            <option>otro</option>
+                        </select>
+                        <div id="textotro"></div>
+                    </div>
+                    <div class="entrada">
+                        <div class="leyenda">Edad en años</div>
+                        <input type="text" id="edad-mascota" name="edad-mascota0" size="5">
+                    </div>
+                    <div class="entrada">
+                        <div class="leyenda">Color de la mascota</div>
+                        <input type="text" id="color-mascota" name="color-mascota0" size="30">
+                    </div>
+                    <div class="entrada">
+                        <div class="leyenda">Raza</div>
+                        <input type="text" id="raza-mascota" name="raza-mascota0" size="30">
+                    </div>
+                    <div class="entrada">
+                        <div class="leyenda">Esterilizado</div>
+                        <select id="esterilizado-mascota" name="esterilizado-mascota0">
+                            <option label="Sí">1</option>
+                            <option label="No">0</option>
+                            <option label="No aplica">-1</option>
+                        </select>
+                    </div>
+                    <div class="entrada">
+                        <div class="leyenda">Vacunas</div>
+                        <select id="vacunas-mascota" name="vacunas-mascota0">
+                            <option label="Sí">1</option>
+                            <option label="No">0</option>
+                            <option label="No aplica">-1</option>
+                        </select>
+                    </div>
+                    <div class="entrada" id="files">
+                        <div class="leyenda" >Foto</div>
+                        <input type="file" id="foto-mascota" name="foto-mascota0_0" accept="image/*">
+                        <button class="boton_verde" id="agregar-foto" type="button" onclick="agregar(0)">Agregar foto</button>
+                    </div>
+                </div>
+                <div class="entrada botones" id="botones">
+                    <button class="boton_azul" id="informar_nueva_mascota" type="button" onclick="informar()">Informar otra mascota en este domicilio</button>
+                    <button class="boton_verde" id="conf" type="button" onclick="confirmacion()">Enviar información de este domicilio</button>
+                </div>
+            </div>
+            <div class="entrada botones" id="confirmacion">
+                ¿Está seguro que desea enviar esta información?<br>
+                <button class="boton_rojo" id="mantener" type="button" onclick="cerrar()">No estoy seguro, quiero volver al formulario</button>
+                <button class="boton_verde" id="enviar" type="submit">Sí, estoy total y absolutamente seguro </button>
+                <span id="hay_errores">El formulario contiene errores</span>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

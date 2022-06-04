@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Estadisticas</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flot/0.8.3/jquery.flot.pie.min.js"></script>
+    <script type="text/javascript" src="http://www.benjaminbuffet.com/public/js/jquery.flot.orderBars.js"></script>
+    <script type="text/javascript">
+        function load_graphs(){
+            let xhr=new XMLHttpRequest();
+            xhr.open('GET', 'read3.py');
+            xhr.onload = function (data) {
+                // noinspection JSUnresolvedVariable
+                /** @type {string} */ let datatext = data.currentTarget.responseText;
+                //console.log(datatext);
+                if (datatext.includes('ERROR') || datatext.includes('Error')) {
+                    //writeMessage('Error en el servidor');
+                    return;
+                }
+                let messages = JSON.parse(datatext);
+                let keys = Object.keys(messages);
+                keys = keys.reverse();
+                let j;
+                //console.log(messages);
+                let matrix=[];
+                let datos=[];
+                for (let i = 0; i < keys.length; i += 1) {
+                    j = keys.length - i - 1;
+                    let key = keys[j];
+                    if (messages.hasOwnProperty(key)) {
+                        matrix.push([i, messages[key][0]]);
+                        datos.push([i, messages[key][1]]);
+                        //writeMessage(messages[key][0], messages[key][1],mymap);
+                    }
+                }
+                $.plot($("#grafico_censos"),  [ datos ], {xaxis: {ticks: matrix}});
+            }
+            xhr.send();
+        }
+        function load_graphs2(){
+            let xhr=new XMLHttpRequest();
+            xhr.open('GET', 'read4.py');
+            xhr.onload = function (data) {
+                // noinspection JSUnresolvedVariable
+                /** @type {string} */ let datatext = data.currentTarget.responseText;
+                //console.log(datatext);
+                if (datatext.includes('ERROR') || datatext.includes('Error')) {
+                    //writeMessage('Error en el servidor');
+                    return;
+                }
+                let messages = JSON.parse(datatext);
+                let keys = Object.keys(messages);
+                keys = keys.reverse();
+                let j;
+                //console.log(messages);
+                let matrix=[];
+                let datos=[];
+                for (let i = 0; i < keys.length; i += 1) {
+                    j = keys.length - i - 1;
+                    let key = keys[j];
+                    if (messages.hasOwnProperty(key)) {
+                        datos.push({label: messages[key][0], data: messages[key][1]});
+                        //writeMessage(messages[key][0], messages[key][1],mymap);
+                    }
+                }
+                $.plot($("#circular"),  datos, {series:{pie:{show:true}}});
+            }
+            xhr.send();
+        }
+
+        function load_graphs3(){
+            let xhr=new XMLHttpRequest();
+            xhr.open('GET', 'read5.py');
+            xhr.onload = function (data) {
+                // noinspection JSUnresolvedVariable
+                /** @type {string} */ let datatext = data.currentTarget.responseText;
+                //console.log(datatext);
+                if (datatext.includes('ERROR') || datatext.includes('Error')) {
+                    //writeMessage('Error en el servidor');
+                    return;
+                }
+                let messages = JSON.parse(datatext);
+                let keys = Object.keys(messages);
+                keys = keys.reverse();
+                let j;
+                //console.log(messages);
+                let matrix=[];
+                let a1=[], a2=[];
+                let fecha="";
+                for (let i = 0; i < keys.length; i += 1) {
+                    j = keys.length - i - 1;
+                    let key = keys[j];
+                    fecha=messages[key][0]+"-"+messages[key][1];
+                    if (messages.hasOwnProperty(key)) {
+                        matrix.push([i,fecha]);
+                        a1.push([i, messages[key][2]]);
+                        a2.push([i, messages[key][3]]);
+                        //writeMessage(messages[key][0], messages[key][1],mymap);
+                    }
+                }
+                let dat = [
+                    {
+                        label: "Perros",
+                        data: a1,
+                    },
+                    {
+                        label: "Gatos",
+                        data: a2
+                    }
+                ];
+
+                $.plot($("#perro_gato"), dat, { xaxis: {ticks: matrix},
+                    series: {
+                        bars: { order:1,
+                            show: true,
+                            barWidth: 0.13,
+
+                        }
+                    },
+                    valueLabels: {
+                        show: true
+                    }
+                });
+            }
+            xhr.send();
+        }
+        function init_graphs(){
+            load_graphs();
+            load_graphs2();
+            load_graphs3();
+            setInterval(function () {
+                load_graphs();
+                load_graphs2();
+                load_graphs3();
+            }, 10000);
+        }
+    </script>
+</head>
+<body onload="init_graphs()">
+<img class="logo2" alt="imagen" src="img/logo.png" width="120" height="120">
+<div class="master">
+    <div class="titulo2"><br>Estadísticas</div>
+    <div style="text-align: center; width: auto">Censos por día
+        <div id="grafico_censos" style="width:600px;height:300px; margin: auto"></div>
+    </div><br><br><br>
+    <div style="text-align: center; width: auto">Cantidad de mascotas por tipo
+        <div id="circular" style="width:600px;height:300px; margin: auto"></div>
+    </div><br><br><br>
+    <div style="text-align: center; width: auto">Perros y gatos
+        <div id="perro_gato" style="width:600px;height:300px; margin: auto"></div>
+    </div><br><br><br>
+    <div class="entrada botones">
+        <button class="boton_verde" type="button" onclick="window.location.href='index.html';">Volver a portada</button>
+    </div><br><br><br>
+</div>
+</body>
+</html>

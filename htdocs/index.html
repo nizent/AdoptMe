@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adopta una mascota</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin="">
+    </script>
+    <script type="text/javascript" src="map.js"></script>
+</head>
+<body onload="load_map()">
+<img class="logo" alt="imagen" src="img/logo.png" width="80" height="80">
+<div class="master">
+    <div class="menu">
+        <div class="texto_menu">
+            <div class="entrada">
+                <a href="informar.html">Informar mascotas</a>
+            </div>
+            <div class="entrada">
+                <a href="listado.html">Ver listado de mascotas</a>
+            </div>
+            <div class="entrada" id="sin_borde">
+                <a href="estadisticas.html">Estadísticas</a>
+            </div>
+        </div>
+    </div>
+    <div class="titulo" id="titulo">Adopta una mascota, ofrécele un hogar</div>
+    <div id="mapid"></div>
+    <div class="description">Últimas mascotas informadas</div>
+    <iframe class="center-iframe" width="1260" height="1015" id="theiframe" name="theiframe" style="width: 100%;" frameborder="0" src="cgi-bin/ver_info.py"></iframe>
+</div>
+</body>
+</html>
